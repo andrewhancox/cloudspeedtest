@@ -18,7 +18,7 @@ namespace CloudSpeedTest
             t.Elapsed += new ElapsedEventHandler(MeasureSpeed);
             t.Enabled = true;
 
-            ICloudProvider provider = new RSCloudProviderStaticAuth();
+            ICloudProvider provider = new RSCloudProvider();
 
             provider.Authenticate();
 
@@ -39,7 +39,7 @@ namespace CloudSpeedTest
         {
             var t1 = DateTime.Now;
             var filespersecond = uploadcount / ((t1 - starttime).TotalSeconds);
-            Console.WriteLine("Files per second= " + filespersecond);
+            Console.WriteLine(filespersecond);
 
             //reset time + count
             uploadcount = 0;
